@@ -1,3 +1,6 @@
+Forked to change imports.
+
+
 go-netfilter-queue
 ==================
 
@@ -16,16 +19,16 @@ use IPTables to direct all outgoing Ping/ICMP requests to the queue 0:
 You can then use go-netfilter-queue to inspect the packets:
 
     package main
-    
+
     import (
             "fmt"
             "github.com/openshift/geard/pkg/go-netfilter-queue"
             "os"
     )
-    
+
     func main() {
             var err error
-    
+
             nfq, err := netfilter.NewNFQueue(0, 100, netfilter.NF_DEFAULT_PACKET_SIZE)
             if err != nil {
                     fmt.Println(err)
@@ -33,7 +36,7 @@ You can then use go-netfilter-queue to inspect the packets:
             }
             defer nfq.Close()
             packets := nfq.GetPackets()
-    
+
             for true {
                     select {
                     case p := <-packets:
@@ -46,4 +49,3 @@ You can then use go-netfilter-queue to inspect the packets:
 To undo the IPTables redirect. Run:
 
     iptables -D OUTPUT -p icmp -j NFQUEUE --queue-num 0
-
