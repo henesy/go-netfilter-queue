@@ -24,8 +24,8 @@ package netfilter
 
 /*
 #cgo pkg-config: libnetfilter_queue
-#cgo CFLAGS: -Wall -Werror -I/usr/include
-#cgo LDFLAGS: -L/usr/lib64/
+#cgo CFLAGS: -I/usr/include
+#cgo LDFLAGS: -L/usr/lib64/ -lnetfilter -lmnl
 
 #include "netfilter.h"
 */
