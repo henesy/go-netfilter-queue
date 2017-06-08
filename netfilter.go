@@ -33,7 +33,7 @@ import "C"
 
 import (
 	"github.com/google/gopacket"
-	"github.com/google/layers"
+	"github.com/google/gopacket/layers"
 	"fmt"
 	"unsafe"
 )
